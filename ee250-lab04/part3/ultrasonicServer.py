@@ -3,6 +3,7 @@
 # This code runs on your VM and receives a stream of packets holding ultrasonic
 # sensor data and prints it to stdout. Use a UDP socket here.
 import socket
+import grovepi
 
 def Process():
     # Change the host and port as needed. For ports, use a number in the 9000 
@@ -13,7 +14,7 @@ def Process():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind((host,port))
 
-    print("Process 1 Server Started")
+    print("Process Server Started")
     while True:
         data, addr = s.recvfrom(1024)
         data = data.decode('utf-8')
