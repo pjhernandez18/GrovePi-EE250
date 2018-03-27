@@ -4,7 +4,6 @@ Run vm_subscriber.py in a separate terminal on your VM."""
 
 import paho.mqtt.client as mqtt
 import time
-from pynput import keyboard
 
 def ultrasonic_callback(client, userdata, message):
     newMessage = (str(message.payload, "utf-8"))
@@ -22,8 +21,9 @@ def on_connect(client, userdata, flags, rc):
     client.message_callback_add("anrg-pi2/button", button_callback)
 #Default message callback. Please use custom callbacks.
 def on_message(client, userdata, msg):
-    print("on_message: " + msg.topic + " " + str(msg.payload))
+    print("on_message: " + msg.topic + " " + str(msg.payload, "utf-8"))
 
+<<<<<<< HEAD
 def on_press(key):
     if __name__ == '__main__':
         #this section is covered in publisher_and_subscriber_example.py
@@ -37,6 +37,8 @@ def on_press(key):
             print("delete this line")
             time.sleep(1)
 
+=======
+>>>>>>> upstream/sp18-master
 if __name__ == '__main__':
     #this section is covered in publisher_and_subscriber_example.py
     client = mqtt.Client()

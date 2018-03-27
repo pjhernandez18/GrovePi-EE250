@@ -20,7 +20,7 @@ def on_connect(client, userdata, flags, rc):
     client.message_callback_add("anrg-pi2/ultrasonicRanger", custom_callback)
 #Default message callback. Please use custom callbacks.
 def on_message(client, userdata, msg):
-    print("on_message: " + msg.topic + " " + str(msg.payload))
+    print("on_message: " + msg.topic + " " + str(msg.payload, "utf-8"))
 
 def on_press(key):
     try: 
